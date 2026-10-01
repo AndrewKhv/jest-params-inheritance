@@ -15,6 +15,10 @@ describe("isHighRisk with debt - parameterized test", () => {
         }
     )
 
+    test("", () => {
+
+    })
+
     test.each([
         [0, false],
         [1000, false],

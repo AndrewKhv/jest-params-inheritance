@@ -1,16 +1,16 @@
-export class UserEstonia {
-    name : string
-    age : number
+import {BaseUser} from "./base-user";
+
+export class UserEstonia extends BaseUser {
     idCode : string
 
     constructor(name: string, age: number, idCode: string) {
-        this.name = name
-        this.age = age
+        super(name, age)
         this.idCode = idCode
     }
 
     isAdult(): boolean {
-        return this.age >= 18
+        return this.age >= 21
     }
 
+    changeName(): void {}
 }
