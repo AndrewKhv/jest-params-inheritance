@@ -3,26 +3,33 @@ import { isHighRisk } from "../../src/function/financial"
 // test suite with no parameterization. See below for parameterized test suite
 describe("isHighRisk", () => {
 
-    test("should return true for amount 10001", () => {
-        expect(isHighRisk(10001)).toBe(true)
+    beforeAll(() => {
+        console.log("All tests started")
     })
 
-    test("should return true for amount 50000", () => {
-        expect(isHighRisk(50000)).toBe(true)
+    beforeEach(() => {
+        console.log("test started")
     })
 
-    test("should return false for amount 0", () => {
-        expect(isHighRisk(0)).toBe(false)
+    afterEach(() => {
+        console.log("test finished")
     })
 
-    test("should return false for amount 9999", () => {
-        expect(isHighRisk(9999)).toBe(false)
+    afterAll(() => {
+        console.log("All tests finished")
     })
 
-    test("should return false for amount 10000", () => {
-        expect(isHighRisk(10000)).toBe(false)
-    })
+    test.each([
+        [10001, true],
+        [50000, true],
+        [0, true], //false
+        [9999, false],
+        [10000, false]
+    ])("should return %s for amount %s", (amount, tf) => {
+        expect(isHighRisk(amount)).toBe(tf)
 
+        console.log("this test finished %s", amount, tf)
+    });
 })
 
 
